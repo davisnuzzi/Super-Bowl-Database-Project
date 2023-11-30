@@ -1,0 +1,57 @@
+I, Packers vs. Chiefs, 35-10, Packers, Bart Starr, 1967, Los Angeles
+II, Raiders vs. Packers, 33-14, Packers, Bart Starr, 1968, Miami
+III, Colts vs. Jets, 16-7, Jets, Joe Namath, 1969, Miami
+IV, Chiefs vs. Vikings, 23-7, Chiefs, Len Dawson, 1970, New Orleans
+V, Cowboys vs. Colts, 16-13, Colts, Chuck Howley, 1971, Miami
+VI, Dolphins vs. Cowboys, 24-3, Cowboys, Roger Staubach, 1972, New Orleans
+VII, Redskins vs. Dolphins, 14-7, Dolphins, Jake Scott, 1973, Los Angeles
+VIII, Dolphins vs. Vikings, 24-7, Dolphins, Larry Csonka, 1974, Houston
+IX, Vikings vs. Steelers, 16-6, Steelers, Franco Harris, 1975, New Orleans
+X, Steelers vs. Cowboys, 21-16, Steelers, Lynn Swann, 1976, Miami
+XI, Vikings vs. Raiders, 32-14, Raiders, Fred Biletnikoff, 1977, Pasadena
+XII, Broncos vs. Cowboys, 27-10, Cowboys, Harvey Martin/ Randy White, 1978, New Orleans
+XIII, Cowboys vs. Steelers, 35-31, Steelers, Terry Bradshaw, 1979, Miami
+XIV, Steelers vs. Rams, 31-19, Steelers, Terry Bradshaw, 1980, Pasadena
+XV, Eagles vs. Raiders, 27-10, Raiders, Jim Plunkett, 1981, New Orleans
+XVI, Bengals vs. 49ers, 26-21, 49ers, Joe Montana, 1982, Pontiac
+XVII, Redskins vs. Dolphins, 27-17, Redskins, John Riggins, 1983, Pasadena
+XVIII, Raiders vs. Redskins, 38-9, Raiders, Marcus Allen, 1984, Tampa
+XIX, 49ers vs. Dolphins, 38-16, 49ers, Joe Montana, 1985, Stanford
+XX, Patriots vs. Bears, 46-10, Bears, Richard Dent, 1986, New Orleans
+XXI, Giants vs. Broncos, 39-20, Giants, Phil Simms, 1987, Pasadena
+XXII, Broncos vs. Redskins, 42-10, Redskins, Doug Williams, 1988, San Diego
+XXIII, 49ers vs. Bengals, 20-16, 49ers, Jerry Rice, 1989, Miami
+XXIV, Broncos vs. 49ers, 55-10, 49ers, Joe Montana, 1990, New Orleans
+XXV, Giants vs. Bills, 20-19, Giants, Ottis Anderson, 1991, Tampa
+XXVI, Bills vs. Redskins, 37-24, Redskins, Mark Rypien, 1992, Minneapolis
+XXVII, Cowboys vs. Bills, 52-17, Cowboys, Troy Aikman, 1993, Pasadena
+XXVIII, Bills vs. Cowboys, 30-13, Cowboys, Emmitt Smith, 1994, Atlanta
+XXIX, 49ers vs. Chargers, 49-26, 49ers, Steve Young, 1995, Miami
+XXX, Steelers vs. Cowboys, 27-17, Cowboys, Larry Brown, 1996, Tempe
+XXXI, Packers vs. Patriots, 35-21, Packers, Desmond Howard, 1997, New Orleans
+XXXII, Broncos vs. Packers, 31-24, Broncos, Terrell Davis, 1998, San Diego
+XXXIII, Falcons vs. Broncos, 34-19, Broncos, John Elway, 1999, Miami
+XXXIV, Titans vs. Rams, 23-16, Rams, Kurt Warner, 2000, Atlanta
+XXXV, Giants vs. Ravens, 34-7, Ravens, Ray Lewis, 2001, Tampa
+XXXVI, Patriots vs. Rams, 20-17, Patriots, Tom Brady, 2002, New Orleans
+XXXVII, Buccaneers vs. Raiders, 48-21, Buccaneers, Dexter Jackson, 2003, San Diego
+XXXVIII, Patriots vs. Panthers, 32-29, Patriots, Tom Brady, 2004, Houston
+XXXVIX, Eagles vs. Patriots, 24-21, Patriots, Deion Branch, 2005, Jacksonville
+XL, Steelers vs. Seahawks, 21-10, Steelers, Hines Ward, 2006, Detroit
+XLI, Bears vs. Colts, 29-17, Colts, Peyton Manning, 2007, Miami
+XLII, Patriots vs. Giants, 17-14, Giants, Eli Manning, 2008, Glendale
+XLIII, Cardinals vs. Steelers, 27-23, Steelers, Santonio Holmes, 2009, Tampa
+XLIV, Colts vs. Saints, 31-17, Saints, Drew Brees, 2010, Miami
+XLV, Packers vs. Steelers, 31-25, Packers, Aaron Rodgers, 2011, Arlington
+XLVI, Patriots vs. Giants, 21-17, Giants, Eli Manning, 2012, Indianapolis
+XLVII, 49ers vs. Ravens, 34-31, Ravens, Joe Flacco, 2013, New Orleans
+XLVIII, Broncos vs. Seahawks, 43-8, Seahawks, Malcolm Smith, 2014, East Rutherford
+XLIX, Seahawks vs. Patriots, 28-24, Patriots, Tom Brady, 2015, Glendale
+L, Broncos vs. Panthers, 24-10, Broncos, Von Miller, 2016, Santa Clara
+LI, Falcons vs. Patriots, 34-28, Patriots, Tom Brady, 2017, Houston
+LII, Patriots vs. Eagles, 41-33, Eagles, Nick Foles, 2018, Minneapolis
+LIII, Rams vs. Patriots, 13-3, Patriots, Julian Edelman, 2019, Atlanta
+LIV, Chiefs vs. 49ers, 31-20, Chiefs, Patrick Mahomes II, 2020, Miami
+LV, Buccaneers vs. Chiefs, 31-9, Buccaneers, Tom Brady, 2021, Tampa
+LVI, Bengals vs. Rams, 23-20, Rams, Cooper Kupp, 2022, Los Angeles
+LVII, Eagles vs. Chiefs, 38-35, Chiefs, Patrick Mahomes II, 2023, Glendale
