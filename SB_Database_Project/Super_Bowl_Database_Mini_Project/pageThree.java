@@ -41,13 +41,13 @@ public class pageThree {
 	
 	public static void pageThreePrompt() throws IOException
 	{
-		System.out.println("What would you like to know more about?");
-		System.out.println("1. Show me a team’s Super Bowls");
-		System.out.println("2. Teams that have never been");
-		System.out.println("3. Teams that have never won");
-		System.out.println();
+		System.out.println("What would you like to know more about?"
+			+ "\n1. Show me a team’s Super Bowls"
+			+ "\n2. Teams that have never been"
+			+ "\n3. Teams that have never won"
+			+ "\n"
+			+ "\nEnter the number corresponding to what you'd like to know more about or 0 to go back: ");
 		
-		System.out.println("Enter the number corresponding to what you'd like to know more about or 0 to go back: ");
 		superBowls = FileInput.buildDataMatrix(sbInfoFile);
 		allTeams = FileInput.readFile(teamsFile);
 		setTeamsPlayed();

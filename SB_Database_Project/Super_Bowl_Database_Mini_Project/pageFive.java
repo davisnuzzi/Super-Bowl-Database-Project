@@ -36,12 +36,12 @@ public class pageFive {
 	
 	public static void pageFivePrompt() throws IOException
 	{
-		System.out.println("What would you like to know more about?");
-		System.out.println("1. Won the most");
-		System.out.println("2. Lost the most");
-		System.out.println();
+		 System.out.println("What would you like to know more about?"
+			+ "\n1. What team has won the most Super Bowls"
+			+ "\n2. What team has lost the most Super Bowls"
+			+ "\n"
+			+ "\nEnter the number corresponding to what you'd like to know more about or 0 to go back: ");
 		
-		System.out.println("Enter the number corresponding to what you'd like to know more about or 0 to go back: ");
 		superBowls = FileInput.buildDataMatrix(sbInfoFile);
 		setWinners();
 		setLosers();
