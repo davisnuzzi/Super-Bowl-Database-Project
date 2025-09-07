@@ -32,14 +32,14 @@ public class pageEight {
 	
 	public static void pageEightPrompt() throws IOException
 	{
-		System.out.println("What would you like to know more about?");
-		System.out.println("1. Location of a Super Bowl");
-		System.out.println("2. Location of a certain Year");
-		System.out.println("3. City most played in");
-		System.out.println("4. All Cities played in");
-		System.out.println();
-		
-		System.out.println("Enter the number corresponding to what you'd like to know more about or 0 to go back: ");
+		System.out.println("What would you like to know more about?"
+			+ "\n1. Location of a Super Bowl"
+			+ "\n2. Location of a certain Year"
+			+ "\n3. City most played in"
+			+ "\n4. All Cities played in"
+			+ "\n"
+			+ "\nEnter the number corresponding to what you'd like to know more about or 0 to go back: ");
+
 		superBowls = FileInput.buildDataMatrix(sbInfoFile);
 		setLocations();
 		

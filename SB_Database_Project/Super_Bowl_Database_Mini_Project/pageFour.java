@@ -31,16 +31,16 @@ public class pageFour {
 	
 	public static void pageFourPrompt() throws IOException
 	{
-		System.out.println("What would you like to know more about?");
-		System.out.println("1. Highest Scoring Super Bowl");
-		System.out.println("2. Lowest Scoring Super Bowl");
-		System.out.println("3. Largest margin of victory");
-		System.out.println("4. Smallest margin of victory");
-		System.out.println("5. Most points scored by a team");
-		System.out.println("6. Least points scored by a team");
-		System.out.println();
-		
-		System.out.println("Enter the number corresponding to what you'd like to know more about or 0 to go back: ");
+		System.out.println("What would you like to know more about?"
+			+ "\n1. Highest Scoring Super Bowl"
+			+ "\n2. Lowest Scoring Super Bowl"
+			+ "\n3. Largest margin of victory"
+			+ "\n4. Smallest margin of victory"
+			+ "\n5. Most points scored by a team"
+			+ "\n6. Least points scored by a team"
+			+ "\n"
+			+ "\nEnter the number corresponding to what you'd like to know more about or 0 to go back: ");
+
 		superBowls = FileInput.buildDataMatrix(sbInfoFile);
 		
 		// makes sure that the user enters a value which is valid 

@@ -33,13 +33,13 @@ public class pageSix {
 		
 	public static void pageSixPrompt() throws IOException
 	{
-		System.out.println("What would you like to know more about?");
-		System.out.println("1. MVP of a given year");
-		System.out.println("2. MVP of a given Super Bowl");
-		System.out.println("3. Player with most MVP's");
-		System.out.println();
-		
-		System.out.println("Enter the number corresponding to what you'd like to know more about or 0 to go back: ");
+		System.out.println("What would you like to know more about?"
+			+ "\n1. MVP of a given year"
+			+ "\n2. MVP of a given Super Bowl"
+			+ "\n3. Player with most MVP's"
+			+ "\n"
+			+ "\nEnter the number corresponding to what you'd like to know more about or 0 to go back: ");
+
 		superBowls = FileInput.buildDataMatrix(sbInfoFile);
 		setMVP();
 		
