@@ -37,8 +37,8 @@ public class pageFive {
 	public static void pageFivePrompt() throws IOException
 	{
 		 System.out.println("What would you like to know more about?"
-			+ "\n1. What team has won the most Super Bowls"
-			+ "\n2. What team has lost the most Super Bowls"
+			+ "\n1. What team has won the most Super Bowls?"
+			+ "\n2. What team has lost the most Super Bowls?"
 			+ "\n"
 			+ "\nEnter the number corresponding to what you'd like to know more about or 0 to go back: ");
 		
