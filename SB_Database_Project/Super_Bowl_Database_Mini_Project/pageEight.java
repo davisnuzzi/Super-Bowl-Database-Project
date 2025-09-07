@@ -51,7 +51,7 @@ public class pageEight {
 			{
 				menuNumber.setMenuNumber();
 			
-				if(checkValidMenuNumber(menuNumber.getMenuNumber()))
+				if(menuNumber.checkValidMenuNumber(menuNumber.getMenuNumber(), 4))
 				{
 					runPageEightOption();
 					break;
@@ -240,26 +240,5 @@ public class pageEight {
 		
 		// prints a space for neatness of output in the console
 		System.out.println();
-	}
-	
-	/**
-	 * 
-	 * Checks to see if the menu number selected is valid for the constraints of the class.
-	 * 
-	 * @param menuNumber
-	 * @return the boolean value of whether or not the menu number is valid
-	 */
-	
-	public static boolean checkValidMenuNumber(int menuNumber)
-	{
-		if(String.valueOf(menuNumber).compareTo("z") >= 0 || menuNumber < 0 || menuNumber > 4)
-		{
-			return false;
-		}
-		else
-		{
-			return true;
-		}
-		
 	}
 }

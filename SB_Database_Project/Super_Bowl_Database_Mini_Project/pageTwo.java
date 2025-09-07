@@ -42,7 +42,7 @@ public class pageTwo {
 			{
 				superBowlNumber.setMenuNumber();
 			
-				if(checkValidMenuNumber(superBowlNumber.getMenuNumber()))
+				if(checkValidSBNumber(superBowlNumber.getMenuNumber()))
 				{
 					break;
 				}
@@ -97,13 +97,13 @@ public class pageTwo {
 	 * 
 	 * Checks to see if the menu number selected is valid for the constraints of the class.
 	 * 
-	 * @param menuNumber
+	 * @param sbNumber
 	 * @return the boolean value of whether or not the menu number is valid
 	 */
 	
-	public static boolean checkValidMenuNumber(int menuNumber)
+	public static boolean checkValidSBNumber(int sbNumber)
 	{
-		if(String.valueOf(menuNumber).compareTo("z") >= 0 || menuNumber < 0 || menuNumber > superBowls.length)
+		if(String.valueOf(sbNumber).compareTo("z") >= 0 || sbNumber < 0 || sbNumber > superBowls.length)
 		{
 			return false;
 		}

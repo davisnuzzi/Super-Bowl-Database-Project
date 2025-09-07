@@ -39,5 +39,26 @@ public class menuNumber {
 		return this.menuNum;
 		
 	}
+
+	/**
+	 * 
+	 * Checks to see if the menu number selected is valid for the constraints of the class.
+	 * 
+	 * @param menuNumber
+	 * @return the boolean value of whether or not the menu number is valid
+	 */
+	
+	public boolean checkValidMenuNumber(int menuNumber, int numItems)
+	{
+		if(String.valueOf(menuNumber).compareTo("z") >= 0 || menuNumber < 0 || menuNumber > numItems)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+		
+	}
 	
 }

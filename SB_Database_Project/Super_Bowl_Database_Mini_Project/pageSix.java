@@ -51,7 +51,7 @@ public class pageSix {
 			{
 				menuNumber.setMenuNumber();
 			
-				if(checkValidMenuNumber(menuNumber.getMenuNumber()))
+				if(menuNumber.checkValidMenuNumber(menuNumber.getMenuNumber(), 3))
 				{
 					runPageSixOption();
 					break;
@@ -225,24 +225,5 @@ public class pageSix {
 		System.out.println();
 	}
 	
-	/**
-	 * 
-	 * Checks to see if the menu number selected is valid for the constraints of the class.
-	 * 
-	 * @param menuNumber
-	 * @return the boolean value of whether or not the menu number is valid
-	 */
 	
-	public static boolean checkValidMenuNumber(int menuNumber)
-	{
-		if(String.valueOf(menuNumber).compareTo("z") >= 0 || menuNumber < 0 || menuNumber > 3)
-		{
-			return false;
-		}
-		else
-		{
-			return true;
-		}
-		
-	}
 }

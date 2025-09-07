@@ -14,7 +14,7 @@ public class pageSeven {
 	final static String sbInfoFile = "superbowl-information.txt";
 	
 	// the menu number in which to determine which menu option the user is inputing
-	public static menuNumber menuNumber = new menuNumber();
+	public static menuNumber sbYear = new menuNumber();
 	
 	// array containing the contents of each Super Bowl
 	static String[][] superBowls;
@@ -41,14 +41,14 @@ public class pageSeven {
 		{
 			try 
 			{
-				menuNumber.setMenuNumber();
+				sbYear.setMenuNumber();
 				
-				if(menuNumber.getMenuNumber() == 0)
+				if(sbYear.getMenuNumber() == 0)
 				{
 					startMenu.startScreen();
 				}
 			
-				if(checkValidMenuNumber(menuNumber.getMenuNumber()))
+				if(checkValidSBYear(sbYear.getMenuNumber()))
 				{
 					readYearInfo();
 					break;
@@ -61,7 +61,7 @@ public class pageSeven {
 			}
 			finally
 			{
-				menuNumber.keyboard.nextLine();
+				sbYear.keyboard.nextLine();
 			}
 			
 			System.out.println("That does not appear to be an option, please try again.");
@@ -81,7 +81,7 @@ public class pageSeven {
 		
 		System.out.println("Super Bowl, Teams, Score, Winner, MVP, Year Played, Location Played");
 		System.out.println();
-		System.out.println(years[menuNumber.getMenuNumber()-1967]);
+		System.out.println(years[sbYear.getMenuNumber()-1967]);
 		System.out.println();
 		
 		// always returns to the page four starting screen
@@ -92,13 +92,13 @@ public class pageSeven {
 	 * 
 	 * Checks to see if the menu number selected is valid for the constraints of the class.
 	 * 
-	 * @param menuNumber
+	 * @param sbYear
 	 * @return the boolean value of whether or not the menu number is valid
 	 */
 	
-	public static boolean checkValidMenuNumber(int menuNumber)
+	public static boolean checkValidSBYear(int sbYear)
 	{
-		if(String.valueOf(menuNumber).compareTo("z") >= 0 || menuNumber < 1967 || menuNumber > 1966 + superBowls.length)
+		if(String.valueOf(sbYear).compareTo("z") >= 0 || sbYear < 1967 || sbYear > 1966 + superBowls.length)
 		{
 			return false;
 		}
