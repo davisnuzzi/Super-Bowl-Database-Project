@@ -27,6 +27,8 @@ public class FileInput {
 		{
 			System.out.println(file.nextLine());
 		}
+
+		file.close();
 	}
 	
 	/**
@@ -61,7 +63,9 @@ public class FileInput {
 		for (int i = 0; i < lines; ++i) 
 		{
 			sbList[i] = file.nextLine(); 
-		}	
+		}
+
+		file.close();
 			
 		return sbList;
 				
