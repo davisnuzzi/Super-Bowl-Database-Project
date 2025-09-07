@@ -177,6 +177,8 @@ public class pageThree {
 				}
 			}
 		}
+
+		input.close();
 		
 		System.out.println();
 	}
