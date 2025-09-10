@@ -1,5 +1,11 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -16,19 +22,14 @@ public class FileInput {
 	 * Reads in a file and prints its contents into the console for the user to see.
 	 * 
 	 * @param filename
-	 * @throws FileNotFoundException
+	 * @throws IOException
 	 */
 	
-	public static void showFile(String filename) throws FileNotFoundException
+	public static void showFile(String filename) throws IOException
 	{
-		Scanner file = new Scanner(new File (filename));
-		
-		while(file.hasNextLine())
-		{
-			System.out.println(file.nextLine());
+		try (var lines = Files.lines(Path.of(filename), StandardCharsets.UTF_8)) {
+			lines.forEach(System.out::println);
 		}
-
-		file.close();
 	}
 	
 	/**
@@ -40,35 +41,19 @@ public class FileInput {
 	 * @throws FileNotFoundException
 	 */
 	
-	public static String[] readFile(String filename) throws FileNotFoundException
+	public static String[] readFile(String filename) throws FileNotFoundException 
 	{
-		Scanner file = new Scanner(new File (filename));
-			
-		int lines = 0;
-			
-		// initializes how many lines are in the file to set the array size to
-		while (file.hasNextLine()) 
-		{
-			lines++;
-			file.nextLine();
-		}
-			
-		file.close();
-			
-		file = new Scanner(new File (filename));
+		List<String> lines = new ArrayList<>();
 		
-		String[] sbList = new String[lines];
-		
-		// stores the contents of the file into the array
-		for (int i = 0; i < lines; ++i) 
+		try (Scanner sc = new Scanner(new File(filename), StandardCharsets.UTF_8.name())) 
 		{
-			sbList[i] = file.nextLine(); 
+			while (sc.hasNextLine()) 
+			{
+				lines.add(sc.nextLine());
+			}
 		}
-
-		file.close();
-			
-		return sbList;
-				
+		
+		return lines.toArray(new String[0]);
 	}
 	
 	/**
@@ -81,27 +66,21 @@ public class FileInput {
 	 * @throws FileNotFoundException
 	 */
 	
-	public static String[][] buildDataMatrix(String filename) throws FileNotFoundException
+	public static String[][] buildDataMatrix(String filename) throws FileNotFoundException 
 	{
-		
 		String[] rawData = readFile(filename);
 		
 		String[][] matrix = new String[rawData.length][7];
-		
-		// separates each piece of information in the file and gets rid of an unnecessary white space 
-		for(int i = 0; i < rawData.length; i++)
+
+		for (int i = 0; i < rawData.length; i++) 
 		{
-			matrix[i] = rawData[i].split(", ");
-			
-			for(int j = 0; j < 7; j++)
-			{
-				matrix[i][j].trim();
+			// Split on commas with optional surrounding spaces; keep empty trailing fields
+			String[] parts = rawData[i].split("\\s*,\\s*", -1);
+
+			for (int j = 0; j < 7; j++) {
+				matrix[i][j] = (j < parts.length) ? parts[j].trim() : "";
 			}
 		}
-		
-		
-		
 		return matrix;
-		
 	}
 }
