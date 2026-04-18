@@ -9,7 +9,8 @@ import java.util.Scanner;
 
 public class menuNumber {
 	
-	public Scanner keyboard = new Scanner(System.in);
+	private static final Scanner SHARED_KEYBOARD = new Scanner(System.in);
+	public final Scanner keyboard = SHARED_KEYBOARD;
 	private int menuNum;
 	
 	/**
@@ -26,7 +27,15 @@ public class menuNumber {
 	
 	public void setMenuNumber()
 	{
-		this.menuNum = this.keyboard.nextInt();
+		if (this.keyboard.hasNextInt())
+		{
+			this.menuNum = this.keyboard.nextInt();
+		}
+		else
+		{
+			this.keyboard.next();
+			this.menuNum = Integer.MIN_VALUE;
+		}
 	}
 	
 	/**
@@ -50,15 +59,7 @@ public class menuNumber {
 	
 	public boolean checkValidMenuNumber(int menuNumber, int numItems)
 	{
-		if(String.valueOf(menuNumber).compareTo("z") >= 0 || menuNumber < 0 || menuNumber > numItems)
-		{
-			return false;
-		}
-		else
-		{
-			return true;
-		}
-		
+		return menuNumber >= 0 && menuNumber <= numItems;
 	}
 	
 }
