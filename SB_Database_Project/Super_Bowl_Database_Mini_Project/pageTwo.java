@@ -85,10 +85,10 @@ public class pageTwo {
 		{
 			System.out.println("Super bowl " + superBowls[num - 1][0] + " was a matchup of " + superBowls[num - 1][1] + " in which the "
 					+ superBowls[num - 1][3] + " won " + superBowls[num - 1][2] + ", and " + superBowls[num - 1][4] + " won the MVP of the game."
-					+ " The game was play in " + superBowls[num - 1][5] + " in " + superBowls[num - 1][6] + ".");
+					+ " The game was played in " + superBowls[num - 1][6] + " in " + superBowls[num - 1][5] + ".");
 			
 			System.out.println();
-			startMenu.runMenuOption();
+			startMenu.startScreen();
 		}
 		
 	}

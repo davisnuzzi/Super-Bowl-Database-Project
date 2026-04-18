@@ -3,7 +3,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
-import java.util.Scanner;
 
 /**
  * 
@@ -150,35 +149,30 @@ public class pageThree {
 	{
 		String[] sbTeams = new String[2];
 		String[] sbTeamsInfo;
-		Scanner input = new Scanner(System.in);
 		sbTeamsInfo = FileInput.readFile(sbInfoFile);
 		
 		System.out.println("Which team?");
-		String teamChoice = input.next();
+		String teamChoice = menuNumber.keyboard.next();
 
 		// checks if the user's input is invalid 
-		// and will recursively restarts the method until the user enters a valid input
-		if(containsIgnoreCase(teamsPlayed, teamChoice) == false)
+		// and stays in the loop until the user enters a valid input
+		while(containsIgnoreCase(teamsPlayed, teamChoice) == false)
 		{
 			System.out.println("That does not appear to be an option, please try again.");
-			showTeamSuperBowls();
-		}
-		else
-		{
-			// traverses through the sbTeamsInfo array, 
-			// and prints the Super Bowl's information (if one of the two teams that played 
-			// in the current indexed Super Bowl is the same as the user input)
-			for(int i = 0; i < sbTeamsInfo.length; i++)
-			{
-				sbTeams = superBowls[i][1].split(" vs. ");
-				if(sbTeams[0].equalsIgnoreCase(teamChoice) || sbTeams[1].equalsIgnoreCase(teamChoice))
-				{
-					System.out.println(sbTeamsInfo[i]);
-				}
-			}
+			teamChoice = menuNumber.keyboard.next();
 		}
 
-		input.close();
+		// traverses through the sbTeamsInfo array, 
+		// and prints the Super Bowl's information (if one of the two teams that played 
+		// in the current indexed Super Bowl is the same as the user input)
+		for(int i = 0; i < sbTeamsInfo.length; i++)
+		{
+			sbTeams = superBowls[i][1].split(" vs. ");
+			if(sbTeams[0].equalsIgnoreCase(teamChoice) || sbTeams[1].equalsIgnoreCase(teamChoice))
+			{
+				System.out.println(sbTeamsInfo[i]);
+			}
+		}
 		
 		System.out.println();
 	}

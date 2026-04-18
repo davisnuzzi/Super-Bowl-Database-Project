@@ -2,6 +2,7 @@ import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.Year;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -29,9 +30,6 @@ public class AddSuperBowl {
 	// scanner that gathers the user's input
 	static Scanner userInput = new Scanner(System.in);
 	
-	// writer to write out the added information into the file
-	static BufferedWriter writer;
-	
 	
 	/**
 	 * 
@@ -43,41 +41,27 @@ public class AddSuperBowl {
 	
 	public static void addInfo() throws IOException
 	{
-		
-		
-		try {
-            writer = new BufferedWriter(new FileWriter(sbInfoFile, true));
-        } catch (IOException e) {
-            System.out.println("Error: " + e.getMessage());
-            return;
-        }
-		
 		System.out.println("Would you like to add information of a new Super Bowl? (Y or N)");
-		String response = userInput.next();
-		
-		
-		if(!(response.equalsIgnoreCase("N")) && !(response.equalsIgnoreCase("Y")))
+		String response = readYesNo();
+
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter(sbInfoFile, true)))
 		{
-			System.out.println("Enter Y for yes or N for no please.");
-			response = userInput.next();
-		}
-		
-		while(!(response.equalsIgnoreCase("N")))
-		{
-			setInputs();
-			
-			writer.newLine();
-			writer.write(inputs[0]);
-			
-			for(int i = 1; i < inputs.length; i++)
+			while(!(response.equalsIgnoreCase("N")))
 			{
-				writer.write(", " + inputs[i]);
+				setInputs();
+				
+				writer.newLine();
+				writer.write(inputs[0]);
+				
+				for(int i = 1; i < inputs.length; i++)
+				{
+					writer.write(", " + inputs[i]);
+				}
 				writer.flush();
+				
+				System.out.println("Would you like to add another Super Bowl? (Y or N)");
+				response = readYesNo();
 			}
-			
-			
-			System.out.println("Would you like to add another Super Bowl? (Y or N)");
-			response = userInput.next();
 		}
 		
 		
@@ -111,14 +95,14 @@ public class AddSuperBowl {
 	public static void setSBNumber()
 	{
 		System.out.println("Enter the number of the Super Bowl (using decimal numbers): ");
-		int sbNumber = userInput.nextInt();
+		int sbNumber = readInt();
 		
 		// While loops ensures that the user will enter a valid super bowl number that has not been already played
 		// or that is an impossible. It will stay in the while loop until the user inputs a valid number.
 		while(sbNumber < 58)
 		{
 			System.out.println("That is not a valid input, please try again.");
-			sbNumber = userInput.nextInt();
+			sbNumber = readInt();
 		}
 		
 		inputs[0] = roman_to_integer.convertToRoman(sbNumber);
@@ -144,7 +128,7 @@ public class AddSuperBowl {
 		}
 		
 		System.out.println("Enter the home team: ");
-		String homeTeam = userInput.next();
+		String homeTeam = userInput.next().trim();
 		
 		// Array of teams is sorted to properly perform the binary search in the following while loops
 		Arrays.sort(allTeams);
@@ -154,18 +138,18 @@ public class AddSuperBowl {
 		while(Arrays.binarySearch(allTeams, homeTeam) < 0)
 		{
 			System.out.println("That is not a valid input, please try again.");
-			homeTeam = userInput.next();
+			homeTeam = userInput.next().trim();
 		}
 		
 		System.out.println("Enter the away team: ");
-		String awayTeam = userInput.next();
+		String awayTeam = userInput.next().trim();
 		
 		// while loop ensures that the input is a team and that they are not entering the same twice and
 		// stays in the while loop until the user's input is valid to it's constraints
 		while(Arrays.binarySearch(allTeams, awayTeam) < 0 || awayTeam.equalsIgnoreCase(homeTeam))
 		{
 			System.out.println("That is not a valid input, please try again.");
-			awayTeam = userInput.next();
+			awayTeam = userInput.next().trim();
 		}
 		
 		
@@ -180,10 +164,10 @@ public class AddSuperBowl {
 	public static void setScore()
 	{
 		System.out.println("Enter the winning score: ");
-		int winner = userInput.nextInt();
+		int winner = readInt();
 		
 		System.out.println("Enter the losing score: ");
-		int loser = userInput.nextInt();
+		int loser = readInt();
 		
 		// Switches the value of the winner and loser if the losing score is set to be higher that the winning score
 		if(loser > winner)
@@ -203,17 +187,17 @@ public class AddSuperBowl {
 	public static void setWinner()
 	{
 		System.out.println("Enter the name of the winning team: ");
-		String winner = userInput.next();
+		String winner = userInput.next().trim();
 		
 		// Array of the 2 teams that the user previously entered, used for making sure the user enters a team that played
 		String[] playingTeams = inputs[1].split(" vs. ");
 		
 		// while loop ensures that the user enters one of the 2 teams that played in the super bowl they are adding and
 		// stays in the while loop until the user's input is valid
-		while(Arrays.binarySearch(playingTeams, winner) < 0)
+		while(!(winner.equalsIgnoreCase(playingTeams[0]) || winner.equalsIgnoreCase(playingTeams[1])))
 		{
 			System.out.println("That is not a valid input, please try again.");
-			winner = userInput.next();
+			winner = userInput.next().trim();
 		}
 		
 		inputs[3] = winner;
@@ -227,7 +211,7 @@ public class AddSuperBowl {
 	public static void setMVP()
 	{
 		System.out.println("Enter the name of the player than won the MVP: ");
-		inputs[4] = userInput.next();
+		inputs[4] = readNonEmptyLine();
 	}
 	
 	/**
@@ -238,14 +222,17 @@ public class AddSuperBowl {
 	public static void setYear()
 	{
 		System.out.println("Enter the year the game was played: ");
-		int year = userInput.nextInt(); 
+		int year = readInt(); 
+		int minYear = getMinimumNewYear();
+		int maxYear = Year.now().getValue() + 1;
 		
 		// While loop ensures the user enters a year after the most recently played Super Bowl and
 		// stays in the while loop until the user's input is valid
-		while(year < 2024)
+		while(year < minYear || year > maxYear)
 		{
-			System.out.println("That is not a valid input, please try again.");
-			year = userInput.nextInt();
+			System.out.println("That is not a valid input, please try again."
+					+ " Enter a year between " + minYear + " and " + maxYear + ".");
+			year = readInt();
 		}
 		
 		inputs[5] = String.valueOf(year);
@@ -259,7 +246,54 @@ public class AddSuperBowl {
 	public static void setLocation()
 	{
 		System.out.println("Enter the location the game was played in: ");
-		inputs[6] = userInput.next();
+		inputs[6] = readNonEmptyLine();
+	}
+
+	private static String readYesNo()
+	{
+		String response = userInput.next().trim();
+		while(!(response.equalsIgnoreCase("N")) && !(response.equalsIgnoreCase("Y")))
+		{
+			System.out.println("Enter Y for yes or N for no please.");
+			response = userInput.next().trim();
+		}
+		return response;
+	}
+
+	private static int readInt()
+	{
+		while(!userInput.hasNextInt())
+		{
+			System.out.println("Please enter a valid number.");
+			userInput.next();
+		}
+		return userInput.nextInt();
+	}
+
+	private static String readNonEmptyLine()
+	{
+		userInput.nextLine();
+		String value = userInput.nextLine().trim();
+		while(value.isEmpty())
+		{
+			System.out.println("Input cannot be empty. Please try again.");
+			value = userInput.nextLine().trim();
+		}
+		return value;
+	}
+
+	private static int getMinimumNewYear()
+	{
+		try
+		{
+			String[][] existingData = FileInput.buildDataMatrix(sbInfoFile);
+			int latestYear = Integer.parseInt(existingData[existingData.length - 1][5]);
+			return latestYear + 1;
+		}
+		catch (Exception e)
+		{
+			return Year.now().getValue();
+		}
 	}
 	
 }
